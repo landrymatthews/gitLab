@@ -217,7 +217,7 @@ class App extends Component {
 
   //seach for all events related to current(provider) addr, return the reqAddrs
   matchReq = async (provAddr) => {
-    let reqAddr = await this.state.myContract.getPastEvents("allEvents", {fromBlock: this.state.RequestStartTime, toBlock: 'latest'})
+    let reqAddr = await this.state.myContract.getPastEvents("allEvents", {fromBlock: 0, toBlock: 'latest'})
       .then(pastEvents => { //NOTE:[IMPORTANT] this.state.event is not updated in this stage
         console.log("returned all events:", pastEvents) 
         if (pastEvents == undefined) return undefined
@@ -520,7 +520,7 @@ class App extends Component {
   checkEvents = async () => {
 //    console.log(this.state.myContract);
     //let contractEvent = this.state.myContract.PairingInfo();
-    let pastEvents = await this.state.myContract.getPastEvents("allEvents", {fromBlock:  this.state.RequestStartTime, toBlock: 'latest'});
+    let pastEvents = await this.state.myContract.getPastEvents("allEvents", {fromBlock:  0, toBlock: 'latest'});
     console.log("All events:", pastEvents)
 
     this.setState({
