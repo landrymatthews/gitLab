@@ -538,7 +538,8 @@ class App extends Component {
             + this.state.events[i].args.provAddr, "success")
         }
         if (this.state.events[i] && this.state.myAccount == this.state.events[i].args.provAddr) {
-          this.addNotification("You Have Been Assigned A Task", "You have been chosen to complete the request from address", "info");
+          this.addNotification("You Have Been Assigned A Task", "You have been chosen to complete the request from address " 
+          + this.state.events[i].args.reqAddr, "info");
         }
       }
 
@@ -595,7 +596,8 @@ class App extends Component {
           this.addNotification("Validator signed", "Your task is being validated", "info")
         }
         if (this.state.myAccount == this.state.events[i].args.provAddr) {
-          this.addNotification("You Have signed your validation", "You have validated the request from address", "info");
+          this.addNotification("You Have signed your validation", "You have validated the request from address"
+          + this.state.events[i].args.reqAddr, "info");
         }
       }
 
@@ -632,7 +634,6 @@ class App extends Component {
       animationIn: ["animated", "fadeIn"],
       animationOut: ["animated", "fadeOut"],
       dismiss: { duration: 5000 },
-      dismissable: { click: true }
     });
   }
   showApplyButton() {
